@@ -1,0 +1,1 @@
+export function ready() { return Telegram.WebApp.ready(); }
