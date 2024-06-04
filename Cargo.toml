@@ -1,0 +1,16 @@
+[package]
+name = "konnektoren-mini-app"
+version = "0.1.0"
+edition = "2021"
+description = "Telegram Mini App for Konnektoren"
+
+[lib]
+name = "konnektoren_mini_app"
+path = "src/lib.rs"
+
+[[bin]]
+name = "konnektoren_mini_app_bin"
+path = "src/main.rs"
+
+[dependencies]
+yew = { version = "0.21", features = ["csr"] }
