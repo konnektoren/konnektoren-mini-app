@@ -1,0 +1,19 @@
+@use "../abstracts" as *;
+
+.challenge ul li {
+    display: none;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.challenge ul li:last-child {
+    display: block;
+    background-color: #e1f5fe;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #b3e5fc;
+    }
+}
