@@ -1,0 +1,27 @@
+@use "../abstracts" as *;
+
+body {
+    margin: 0;
+    padding: 0 0 70px;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.1;
+
+    &.h1 {
+        font-size: map-get($font-sizes, "900");
+        font-weight: 700;
+    }
+
+    &.h2 {
+        font-size: map-get($font-sizes, "800");
+        font-weight: 400;
+    }
+
+    &.h3 {
+        font-size: map-get($font-sizes, "700");
+        font-weight: 400;
+    }
+}
