@@ -1,8 +1,6 @@
 use wasm_bindgen::prelude::*;
 
-#[wasm_bindgen(
-    inline_js = "export function ready() { return Telegram.WebApp.ready(); }"
-)]
+#[wasm_bindgen(inline_js = "export function ready() { return Telegram.WebApp.ready(); }")]
 extern "C" {
     pub fn ready();
 }
