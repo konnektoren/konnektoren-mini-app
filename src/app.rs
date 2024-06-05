@@ -1,4 +1,5 @@
 use crate::challenge::ChallengeComp;
+use crate::footer::Footer;
 use crate::telegram;
 use yew::prelude::*;
 
@@ -6,14 +7,13 @@ use yew::prelude::*;
 pub fn app() -> Html {
     use_effect(move || {
         telegram::ready();
-        telegram::set_header_color("red");
     });
 
     html! {
         <div>
             <h1>{"Konnektoren"}</h1>
-            {"Visit "}<a href="https://konnektoren.help">{"Konnektoren.help"}</a>
             <ChallengeComp id={"konnektoren-1"} />
+            <Footer />
         </div>
     }
 }
