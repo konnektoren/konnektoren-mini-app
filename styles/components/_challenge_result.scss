@@ -1,13 +1,10 @@
 @use "../abstracts" as *;
 
-.challenge ul li {
+.challenge .multiple-choice .challenge-result ul li {
     display: none;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-bottom: 1px solid #eee;
 }
 
-.challenge ul li:last-child {
+.challenge .multiple-choice ul li:last-child {
     display: block;
     background-color: #e1f5fe;
     font-weight: bold;
@@ -15,5 +12,51 @@
 
     &:hover {
         background-color: #b3e5fc;
+    }
+}
+
+.challenge-result {
+    h2 {
+        font-size: 0.5em;
+        text-align: left;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+
+            .result-correct {
+                background-color: #d4edda;
+                color: #155724;
+
+                &::before {
+                    content: "\f00c";
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    margin-right: 10px;
+                    color: #28a745;
+                }
+            }
+
+            .result-incorrect {
+                background-color: #f8d7da;
+                color: #721c24;
+
+                &::before {
+                    content: "\f00d";
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    margin-right: 10px;
+                    color: #dc3545;
+                }
+            }
+        }
     }
 }
