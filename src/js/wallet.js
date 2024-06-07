@@ -15,7 +15,6 @@ export async function connectWallet(onConnectCallback) {
 
     tonConnectUI.onStatusChange(async (wallet) => {
       try {
-        console.log("Wallet status changed:", wallet);
         const rawAddress = wallet.account.address;
         const address = TonConnectSDK.toUserFriendlyAddress(
           rawAddress,
