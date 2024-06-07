@@ -3,6 +3,7 @@ export async function claim(address, amount) {
     console.error("User is not available");
     return;
   }
+
   const data = {
     id: Telegram.WebApp.initDataUnsafe.user.id,
     user: Telegram.WebApp.initDataUnsafe.user.username,
@@ -10,6 +11,8 @@ export async function claim(address, amount) {
     address,
     amount,
   };
+
+  console.log("Claiming data", data);
 
   Telegram.WebApp.sendData(JSON.stringify(data));
 }
