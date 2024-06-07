@@ -24,6 +24,12 @@ jobs:
       - run: rustup target add wasm32-unknown-unknown
       - run: trunk build --release
 
+      - name: Copy policy.html
+        run: cp ./policy.html ./dist/policy.html
+
+      - name: Copy terms.html
+        run: cp ./terms.html ./dist/terms.html
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
