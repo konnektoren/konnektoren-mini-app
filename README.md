@@ -23,6 +23,11 @@ The app is deployed to GitHub Pages using GitHub Actions. The deployment configu
 
 To deploy the app, push to the `main` branch.
 
+## Coin
+
+We have a coin you can earn for learning:
+[TestKonnektoren](https://testnet.tonscan.org/jetton/EQCP0BHV18JPMrt0JbSUulzcL4geZ_JrGgMZmbVv8gBk2iTe)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
