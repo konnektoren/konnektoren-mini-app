@@ -22,7 +22,7 @@ export async function connectWallet(onConnectCallback) {
           USE_TEST_NETWORK,
         );
 
-        const balance = await getJettonBalance(address);
+        const balance = await getJettonBalance(rawAddress);
 
         onConnectCallback(address, balance);
       } catch (innerError) {
