@@ -1,4 +1,4 @@
-button {
+.challenge-actions button {
     padding: 15px 30px;
     font-size: 16px;
     font-weight: bold;
@@ -11,12 +11,12 @@ button {
     transition: all 0.3s ease-in-out;
 }
 
-button:hover {
+.challenge-actions button:hover {
     background: linear-gradient(45deg, #0056b3, #006bbf);
     box-shadow: 0px 15px 20px rgba(0, 123, 255, 0.5);
     transform: translateY(-5px);
 }
 
-button:active {
+.challenge-actions button:active {
     transform: translateY(-2px);
 }

@@ -30,6 +30,9 @@ jobs:
       - name: Copy terms.html
         run: cp ./terms.html ./dist/terms.html
 
+      - name: Copy tonconnect-manifest.json
+        run: cp ./tonconnect-manifest.json ./dist/tonconnect-manifest.json
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
