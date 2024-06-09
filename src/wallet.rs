@@ -34,7 +34,8 @@ pub fn wallet(props: &WalletCompProps) -> Html {
                 Closure::wrap(Box::new(move |addr: String, bal: String| {
                     log::info!("Connected in rs: {} {}", addr, bal);
                     address.set(addr.clone());
-                    balance.set(bal);
+                    let bal = bal.parse::<u64>().unwrap_or(0);
+                    balance.set(bal.checked_div(1_000_000_000).unwrap_or(0).to_string());
                     on_address.emit(addr);
                 }) as Box<dyn Fn(String, String)>)
             };
