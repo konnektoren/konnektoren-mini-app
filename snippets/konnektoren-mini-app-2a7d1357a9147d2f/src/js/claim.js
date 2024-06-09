@@ -34,7 +34,22 @@ export async function claim(address, amount) {
 
     if (result.success) {
       Telegram.WebApp.sendData(JSON.stringify(result));
-      alert(`Success! View transaction: ${result.explorer_url}`);
+
+      Telegram.WebApp.showPopup(
+        {
+          title: "Claimed successfully",
+          message: "Success! View transaction",
+          buttons: [
+            { id: "link", type: "default", text: "Open Explorer" },
+            { type: "cancel" },
+          ],
+        },
+        function (btn) {
+          if (btn === "link") {
+            Telegram.WebApp.openLink(result.explorer_url);
+          }
+        },
+      );
       return Promise.resolve(result);
     } else {
       alert("Claim failed.");
