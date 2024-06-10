@@ -26,8 +26,7 @@
         padding: 0;
 
         li {
-            padding: 10px;
-            margin: 5px 0;
+            padding: 0.5rem;
             border-radius: 5px;
             display: flex;
             align-items: center;
@@ -35,6 +34,8 @@
             .result-correct {
                 background-color: #d4edda;
                 color: #155724;
+                border-radius: 1rem;
+                padding: 0.2rem;
 
                 &::before {
                     content: "\f00c";
@@ -48,6 +49,8 @@
             .result-incorrect {
                 background-color: #f8d7da;
                 color: #721c24;
+                border-radius: 1rem;
+                padding: 0.2rem;
 
                 &::before {
                     content: "\f00d";
