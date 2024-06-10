@@ -2,6 +2,7 @@ pub mod app;
 pub mod challenge;
 pub mod claim;
 pub mod footer;
+pub mod is_correct;
 pub mod telegram;
 pub mod wallet;
 

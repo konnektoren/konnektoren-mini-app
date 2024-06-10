@@ -57,3 +57,39 @@ h1 {
         margin: 5px;
     }
 }
+
+.challenge-page.correct {
+    background-color: #28a745;
+    animation: flicker-correct 0.5s linear;
+    .challenge {
+        background-color: transparent;
+    }
+}
+
+.challenge-page.incorrect {
+    background-color: #dc3545;
+    animation: flicker-incorrect 0.5s linear;
+    .challenge {
+        background-color: transparent;
+    }
+}
+
+@keyframes flicker-correct {
+    0%,
+    100% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: #28a745;
+    }
+}
+
+@keyframes flicker-incorrect {
+    0%,
+    100% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: #dc3545;
+    }
+}
