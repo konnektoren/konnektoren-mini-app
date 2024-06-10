@@ -1,5 +1,8 @@
 use crate::claim::ClaimComp;
-use konnektoren_core::{challenges::ChallengeResult, game::Game};
+use konnektoren_core::{
+    challenges::{ChallengeResult, Performance},
+    game::Game,
+};
 use konnektoren_yew::components::challenge::{ChallengeComponent, ResultSummaryComponent};
 use yew::prelude::*;
 
@@ -34,12 +37,14 @@ pub fn challenge_comp(props: &ChallengeCompProps) -> Html {
                 None => html! {},
             };
             let claim = match &*challenge_result {
-                Some(_result) => {
+                Some(result) if challenge.performance(&result) >= 50 => {
+                    let amount: u32 =
+                        challenge.performance(&result).checked_div(10).unwrap_or(0) as u32;
                     html! {
-                        <ClaimComp address={props.address.clone()} amount={10} />
+                        <ClaimComp address={props.address.clone()} {amount} />
                     }
                 }
-                None => html! {},
+                _ => html! {},
             };
             html! {
                 <div class="challenge-page">
