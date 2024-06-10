@@ -33,8 +33,6 @@ export async function claim(address, amount) {
     const result = await response.json();
 
     if (result.success) {
-      Telegram.WebApp.sendData(JSON.stringify(result));
-
       Telegram.WebApp.showPopup(
         {
           title: "Claimed successfully",
@@ -50,10 +48,10 @@ export async function claim(address, amount) {
           }
         },
       );
-      return Promise.resolve(result);
+      return Promise.resolve(result.explorer_url);
     } else {
       alert("Claim failed.");
-      return Promise.reject("Claim failed");
+      return Promise.reject(result);
     }
   } catch (error) {
     console.error("Error:", error);
