@@ -10,7 +10,6 @@ h1 {
     align-items: center;
     justify-content: center;
     padding: 1em;
-    background-color: #f5f5f5;
     text-align: center;
 
     h1 {
@@ -59,7 +58,6 @@ h1 {
 }
 
 .challenge-page.correct {
-    background-color: #28a745;
     animation: flicker-correct 0.5s linear;
     .challenge {
         background-color: transparent;
@@ -67,7 +65,6 @@ h1 {
 }
 
 .challenge-page.incorrect {
-    background-color: #dc3545;
     animation: flicker-incorrect 0.5s linear;
     .challenge {
         background-color: transparent;

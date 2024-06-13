@@ -1,7 +1,12 @@
 @use "../abstracts" as *;
 
 body {
-    --bg-color: var(--tg-theme-bg-color);
+    @include light-theme;
+
+    --bg-color: var(--tg-theme-bg-color, var(--background-primary));
+    --text-color: var(--tg-theme-text-color, var(--text-primary));
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font:
         12px/18px "Lucida Grande",
         "Lucida Sans Unicode",
@@ -9,11 +14,9 @@ body {
         Helvetica,
         Verdana,
         sans-serif;
-    background-color: var(--bg-color);
-    color: var(--tg-theme-text-color);
     margin: 8px 4px;
     padding: 0;
-    color-scheme: var(--tg-color-scheme);
+    color-scheme: var(--tg-color-scheme, light);
 }
 
 a {
