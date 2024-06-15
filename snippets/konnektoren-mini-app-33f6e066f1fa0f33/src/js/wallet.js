@@ -1,5 +1,5 @@
-import {toUserFriendlyAddress} from 'https://cdn.jsdelivr.net/npm/@tonconnect/sdk@3.0.3/+esm'
-import {TonConnectUI} from "https://cdn.jsdelivr.net/npm/@tonconnect/ui@2.0.5/+esm";
+import {toUserFriendlyAddress} from "https://esm.run/@tonconnect/sdk";
+import {TonConnectUI} from "https://esm.run/@tonconnect/ui";
 
 const USE_TEST_NETWORK = true;
 const KONNEKTOREN_COIN = "EQCP0BHV18JPMrt0JbSUulzcL4geZ_JrGgMZmbVv8gBk2iTe";
