@@ -7,6 +7,7 @@ use konnektoren_core::{
 use konnektoren_yew::components::challenge::{
     ChallengeComponent, ChallengeEvent, ResultSummaryComponent,
 };
+use web_sys::HtmlAudioElement;
 use std::ops::Div;
 use yew::prelude::*;
 
@@ -32,6 +33,8 @@ pub fn challenge_comp(props: &ChallengeCompProps) -> Html {
                 let points = challenge.performance(&result).div(10);
                 add_points(points);
                 challenge_result.set(Some(result.clone()));
+                let audio = HtmlAudioElement::new_with_src("assets/fanfare-3-rpg.ogg").unwrap();
+                let _ = audio.play().unwrap();
             }
             ChallengeEvent::NextTask(_index) => {}
             ChallengeEvent::PreviousTask(_index) => {}
