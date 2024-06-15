@@ -2,17 +2,19 @@ use crate::telegram;
 use yew::prelude::*;
 
 #[function_component(VersionComp)]
-pub fn version() -> Html {
-    let version = use_state(|| String::new());
+pub fn version_comp() -> Html {
+    let version = use_state(|| "loading".to_string());
 
     {
         let version = version.clone();
-        use_effect(move || {
+        use_effect_with(version.clone(), move |_| {
             let version = version.clone();
             wasm_bindgen_futures::spawn_local(async move {
                 let api_version = telegram::version();
+                log::info!("Version: {}", api_version);
                 version.set(api_version);
             });
+            || ()
         });
     }
 

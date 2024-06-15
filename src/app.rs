@@ -1,5 +1,6 @@
 use crate::challenge::ChallengeComp;
-use crate::footer::Footer;
+use crate::footer::FooterComp;
+use crate::points::PointsComp;
 use crate::telegram;
 use crate::version::VersionComp;
 use crate::wallet::WalletComp;
@@ -25,9 +26,10 @@ pub fn app() -> Html {
         <div>
             <h1>{"Konnektoren"}</h1>
             <VersionComp />
-            <WalletComp {on_address} />
+            <WalletComp on_address={on_address} />
+            <PointsComp />
             <ChallengeComp id={"konnektoren-1"} address={(*address).clone()} />
-            <Footer />
+            <FooterComp />
         </div>
     }
 }

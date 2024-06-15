@@ -1,4 +1,5 @@
-use crate::claim::ClaimComp;
+use std::ops::Div;
+use crate::{claim::ClaimComp, points::add_points};
 use gloo_timers::callback::Timeout;
 use konnektoren_core::{
     challenges::{ChallengeResult, Performance},
@@ -23,10 +24,13 @@ pub fn challenge_comp(props: &ChallengeCompProps) -> Html {
     let feedback_class = use_state(|| "".to_string());
 
     let handle_event = {
+        let challenge = challenge.clone();
         let challenge_result = challenge_result.clone();
         let feedback_class = feedback_class.clone();
         Callback::from(move |event: ChallengeEvent| match event {
             ChallengeEvent::Finish(result) => {
+                let points = challenge.performance(&result).div(10);
+                add_points(points);
                 challenge_result.set(Some(result.clone()));
             }
             ChallengeEvent::NextTask(_index) => {}
