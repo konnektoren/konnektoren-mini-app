@@ -1,6 +1,7 @@
 use crate::challenge::ChallengeComp;
 use crate::footer::Footer;
 use crate::telegram;
+use crate::version::VersionComp;
 use crate::wallet::WalletComp;
 use yew::prelude::*;
 
@@ -23,6 +24,7 @@ pub fn app() -> Html {
     html! {
         <div>
             <h1>{"Konnektoren"}</h1>
+            <VersionComp />
             <WalletComp {on_address} />
             <ChallengeComp id={"konnektoren-1"} address={(*address).clone()} />
             <Footer />
