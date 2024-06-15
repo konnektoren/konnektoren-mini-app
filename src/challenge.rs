@@ -1,4 +1,3 @@
-use std::ops::Div;
 use crate::{claim::ClaimComp, points::add_points};
 use gloo_timers::callback::Timeout;
 use konnektoren_core::{
@@ -8,6 +7,7 @@ use konnektoren_core::{
 use konnektoren_yew::components::challenge::{
     ChallengeComponent, ChallengeEvent, ResultSummaryComponent,
 };
+use std::ops::Div;
 use yew::prelude::*;
 
 #[derive(Properties, PartialEq)]

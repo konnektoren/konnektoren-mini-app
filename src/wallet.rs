@@ -53,13 +53,24 @@ pub fn wallet(props: &WalletCompProps) -> Html {
         });
     }
 
+    let balance_comp = {
+        let balance = balance.clone();
+        if *balance == "0" {
+            html! {}
+        } else {
+            html! {
+                <span class="balance">
+                    <span class="symbol">{"★"}</span>
+                    {format!("{}", *balance)}
+                </span>
+            }
+        }
+    };
+
     html! {
         <div class="wallet">
             <div id="wallet-button" />
-            <span class="balance">
-                <span class="symbol">{"★"}</span>
-                {format!("{}", *balance)}
-            </span>
+        {balance_comp}
         </div>
     }
 }

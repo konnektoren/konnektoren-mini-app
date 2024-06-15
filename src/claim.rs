@@ -64,10 +64,23 @@ pub fn claim_comp(props: &ClaimCompProps) -> Html {
         })
     };
 
+    let address_comp = {
+        if address.is_empty() {
+            html! { <p>{ "No address, connect wallet" }</p> }
+        } else {
+            html! {
+                <span class="address">
+                    <span class="symbol">{"🦄"}</span>
+                    {format!("{}", address)}
+                </span>
+            }
+        }
+    };
+
     html! {
         <div class="claim">
             <h2>{ "Claim your rewards here" }</h2>
-            <p>{ format!("Address: {}", props.address) }</p>
+            { address_comp }
             {
                 match &*claim_state {
                     ClaimState::Initial => html! {
