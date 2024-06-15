@@ -14,13 +14,13 @@ export function tma_set_header_color(color) {
 export function tma_set_item(key, value) {
   return new Promise((resolve, reject) => {
     if (
-        typeof Telegram.WebApp.cloudStorage === "undefined" ||
-        typeof Telegram.WebApp.cloudStorage.setItem !== "function"
+        typeof Telegram.WebApp.CloudStorage === "undefined" ||
+        typeof Telegram.WebApp.CloudStorage.setItem !== "function"
     ) {
       reject(new Error("setItem is undefined"));
       return;
     }
-    Telegram.WebApp.cloudStorage.setItem(key, value, (error, value) => {
+    Telegram.WebApp.CloudStorage.setItem(key, value, (error, value) => {
       if (error) {
         reject(error);
       } else {
@@ -33,13 +33,13 @@ export function tma_set_item(key, value) {
 export function tma_get_item(key) {
   return new Promise((resolve, reject) => {
     if (
-        typeof Telegram.WebApp.cloudStorage === "undefined" ||
-        typeof Telegram.WebApp.cloudStorage.getItem !== "function"
+        typeof Telegram.WebApp.CloudStorage === "undefined" ||
+        typeof Telegram.WebApp.CloudStorage.getItem !== "function"
     ) {
       reject(new Error("getItem is undefined"));
       return;
     }
-    Telegram.WebApp.cloudStorage.getItem(key, (error, value) => {
+    Telegram.WebApp.CloudStorage.getItem(key, (error, value) => {
       if (error) {
         reject(error);
       } else {
