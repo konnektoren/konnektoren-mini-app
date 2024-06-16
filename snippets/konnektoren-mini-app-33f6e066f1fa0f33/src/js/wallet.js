@@ -40,10 +40,27 @@ export async function connectWallet(onConnectCallback) {
 }
 
 export async function getJettonBalance(address) {
-    const jettonAddress = KONNEKTOREN_COIN;
     const response = await fetch(
-        `${TON_API_URL}/accounts/${address}/jettons/${jettonAddress}`,
+        `${TON_API_URL}/accounts/${address}/jettons/${KONNEKTOREN_COIN}`,
     );
     const data = await response.json();
     return data.balance;
+}
+
+export async function sendRawTransaction(rawTxBase64, destinationAddress) {
+    try {
+        const response = await tonConnectUI.sendTransaction({
+            validUntil: Math.floor(new Date() / 1000) + 360,
+            messages: [
+                {
+                    address: destinationAddress,
+                    payload: rawTxBase64,
+                    amount: 1_100_000_000
+                },
+            ],
+        });
+    } catch (error) {
+        console.error("Error sending transaction:", error);
+        throw error;
+    }
 }
