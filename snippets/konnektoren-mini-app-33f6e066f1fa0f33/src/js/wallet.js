@@ -55,7 +55,7 @@ export async function sendRawTransaction(rawTxBase64, destinationAddress) {
                 {
                     address: destinationAddress,
                     payload: rawTxBase64,
-                    amount: 1_100_000_000
+                    amount: "100000000"
                 },
             ],
         });

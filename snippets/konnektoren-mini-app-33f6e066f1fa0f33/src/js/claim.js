@@ -88,7 +88,8 @@ export async function claim_v2(address, amount) {
 
     try {
         const response = await fetch(
-            "https://tg-api.konnektoren.help/api/v2/claim",
+            //"https://tg-api.konnektoren.help/api/v2/claim",
+            "http://localhost:3000/api/v2/claim",
             {
                 method: "POST",
                 headers: {
