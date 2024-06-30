@@ -7,10 +7,12 @@ export function tma_version() {
 }
 
 export function tma_get_user_id() {
+    console.log(Telegram.WebApp.initDataUnsafe.user.id);
     return Telegram.WebApp.initDataUnsafe.user.id;
 }
 
 export function tma_get_user_name() {
+    console.log(Telegram.WebApp.initDataUnsafe.user.username);
     return Telegram.WebApp.initDataUnsafe.user.username;
 }
 
