@@ -7,11 +7,11 @@ export function tma_version() {
 }
 
 export function tma_get_user_id() {
-    return Telegram.WebAppUser.id;
+    return Telegram.WebApp.initDataUnsafe.user.id;
 }
 
 export function tma_get_user_name() {
-    return Telegram.WebAppUser.username;
+    return Telegram.WebApp.initDataUnsafe.user.username;
 }
 
 export function tma_set_header_color(color) {
