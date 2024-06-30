@@ -6,6 +6,14 @@ export function tma_version() {
     return Telegram.WebApp.version;
 }
 
+export function tma_get_user_id() {
+    return Telegram.WebAppUser.getUser().id;
+}
+
+export function tma_get_user_name() {
+    return Telegram.WebAppUser.getUser().id;
+}
+
 export function tma_set_header_color(color) {
     return Telegram.WebApp.setHeaderColor(color);
 }
