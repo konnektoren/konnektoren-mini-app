@@ -7,8 +7,8 @@ use konnektoren_core::{
 use konnektoren_yew::components::challenge::{
     ChallengeComponent, ChallengeEvent, ResultSummaryComponent,
 };
-use web_sys::HtmlAudioElement;
 use std::ops::Div;
+use web_sys::HtmlAudioElement;
 use yew::prelude::*;
 
 #[derive(Properties, PartialEq)]

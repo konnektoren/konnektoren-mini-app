@@ -2,8 +2,8 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen(module = "/src/js/telegram.js")]
 extern "C" {
-    #[wasm_bindgen(js_name = tma_ready)]
-    pub fn ready();
+    #[wasm_bindgen(catch, js_name = tma_ready)]
+    pub fn ready() -> Result<(), JsValue>;
 
     #[wasm_bindgen(js_name = tma_version)]
     pub fn version() -> String;
@@ -16,4 +16,10 @@ extern "C" {
 
     #[wasm_bindgen(catch, js_name = tma_get_item)]
     pub async fn get_item(key: &str) -> Result<JsValue, JsValue>;
+
+    #[wasm_bindgen(catch, js_name = tma_get_user_id)]
+    pub fn get_user_id() -> Result<String, JsValue>;
+
+    #[wasm_bindgen(catch, js_name = tma_get_user_name)]
+    pub fn get_user_name() -> Result<String, JsValue>;
 }

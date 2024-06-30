@@ -1,8 +1,8 @@
+use gloo_utils::format::JsValueSerdeExt;
+use serde::Deserialize;
 use wasm_bindgen::prelude::*;
 use wasm_bindgen_futures::{js_sys::Promise, JsFuture};
 use yew::prelude::*;
-use serde::Deserialize;
-use gloo_utils::format::JsValueSerdeExt;
 
 #[wasm_bindgen(module = "/src/js/confetti.js")]
 extern "C" {
@@ -74,51 +74,46 @@ pub fn claim_comp(props: &ClaimCompProps) -> Html {
             let claim_state = claim_state.clone();
 
             wasm_bindgen_futures::spawn_local(async move {
-
                 match CLAIM_VERSION {
-                    ClaimVersion::V1 => {
-                        match JsFuture::from(claim(&address, amount)).await {
-                            Ok(result) => {
-                                log::info!("Claim successful: {:?}", result);
-                                let explorer_url = result.as_string().unwrap_or_default();
-                                log::info!("Claim successful: {}", explorer_url);
-                                claim_state.set(ClaimState::Done(explorer_url));
-                            }
-                            Err(e) => {
-                                let error_message = format!("{:?}", e);
-                                log::error!("Claim failed: {}", error_message);
-                                claim_state.set(ClaimState::Error(error_message));
-                            }
+                    ClaimVersion::V1 => match JsFuture::from(claim(&address, amount)).await {
+                        Ok(result) => {
+                            log::info!("Claim successful: {:?}", result);
+                            let explorer_url = result.as_string().unwrap_or_default();
+                            log::info!("Claim successful: {}", explorer_url);
+                            claim_state.set(ClaimState::Done(explorer_url));
                         }
-                    }
-                    ClaimVersion::V2 => {
-                        match JsFuture::from(claim_v2(&address, amount)).await {
-                            Ok(result) => {
-                                match result.into_serde::<RawTransaction>() {
-                                    Ok(raw_tx) => {
-                                        if raw_tx.success {
-                                            match JsFuture::from(sendRawTransaction(&raw_tx.raw_transaction, &raw_tx.destination)).await {
-                                                Ok(_) => {
-                                                    log::info!("Transaction sent successfully");
-                                                    claim_state.set(ClaimState::Done("Transaction sent successfully".to_string()));
-                                                }
-                                                Err(e) => {
-                                                    let error_message = format!("{:?}", e);
-                                                    log::error!("Transaction failed: {}", error_message);
-                                                    claim_state.set(ClaimState::Error(error_message));
-                                                }
-                                            }
-                                        } else {
-                                            let error_message = "Failed to get raw transaction".to_string();
-                                            log::error!("{}", error_message);
+                        Err(e) => {
+                            let error_message = format!("{:?}", e);
+                            log::error!("Claim failed: {}", error_message);
+                            claim_state.set(ClaimState::Error(error_message));
+                        }
+                    },
+                    ClaimVersion::V2 => match JsFuture::from(claim_v2(&address, amount)).await {
+                        Ok(result) => match result.into_serde::<RawTransaction>() {
+                            Ok(raw_tx) => {
+                                if raw_tx.success {
+                                    match JsFuture::from(sendRawTransaction(
+                                        &raw_tx.raw_transaction,
+                                        &raw_tx.destination,
+                                    ))
+                                    .await
+                                    {
+                                        Ok(_) => {
+                                            log::info!("Transaction sent successfully");
+                                            claim_state.set(ClaimState::Done(
+                                                "Transaction sent successfully".to_string(),
+                                            ));
+                                        }
+                                        Err(e) => {
+                                            let error_message = format!("{:?}", e);
+                                            log::error!("Transaction failed: {}", error_message);
                                             claim_state.set(ClaimState::Error(error_message));
                                         }
                                     }
-                                    Err(e) => {
-                                        let error_message = format!("{:?}", e);
-                                        log::error!("Claim failed: {}", error_message);
-                                        claim_state.set(ClaimState::Error(error_message));
-                                    }
+                                } else {
+                                    let error_message = "Failed to get raw transaction".to_string();
+                                    log::error!("{}", error_message);
+                                    claim_state.set(ClaimState::Error(error_message));
                                 }
                             }
                             Err(e) => {
@@ -126,8 +121,13 @@ pub fn claim_comp(props: &ClaimCompProps) -> Html {
                                 log::error!("Claim failed: {}", error_message);
                                 claim_state.set(ClaimState::Error(error_message));
                             }
+                        },
+                        Err(e) => {
+                            let error_message = format!("{:?}", e);
+                            log::error!("Claim failed: {}", error_message);
+                            claim_state.set(ClaimState::Error(error_message));
                         }
-                    }
+                    },
                 }
             });
         })

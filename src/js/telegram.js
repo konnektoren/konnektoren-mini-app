@@ -6,6 +6,20 @@ export function tma_version() {
     return Telegram.WebApp.version;
 }
 
+export function tma_get_user_id() {
+    if (typeof Telegram.WebApp.initDataUnsafe.user === "undefined") {
+        throw new Error("User ID is undefined");
+    }
+    return Telegram.WebApp.initDataUnsafe.user.id.toString();
+}
+
+export function tma_get_user_name() {
+    if (typeof Telegram.WebApp.initDataUnsafe.user === "undefined") {
+        throw new Error("User name is undefined");
+    }
+    return Telegram.WebApp.initDataUnsafe.user.username;
+}
+
 export function tma_set_header_color(color) {
     return Telegram.WebApp.setHeaderColor(color);
 }
