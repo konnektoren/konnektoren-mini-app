@@ -7,14 +7,14 @@ export function tma_version() {
 }
 
 export function tma_get_user_id() {
-    if (typeof Telegram.WebApp.initDataUnsafe.user) {
+    if (typeof Telegram.WebApp.initDataUnsafe.user === "undefined") {
         throw new Error("User ID is undefined");
     }
     return Telegram.WebApp.initDataUnsafe.user.id;
 }
 
 export function tma_get_user_name() {
-    if (typeof Telegram.WebApp.initDataUnsafe.user) {
+    if (typeof Telegram.WebApp.initDataUnsafe.user === "undefined") {
         throw new Error("User name is undefined");
     }
     return Telegram.WebApp.initDataUnsafe.user.username;
