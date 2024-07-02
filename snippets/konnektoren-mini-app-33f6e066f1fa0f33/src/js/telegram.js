@@ -10,7 +10,7 @@ export function tma_get_user_id() {
     if (typeof Telegram.WebApp.initDataUnsafe.user === "undefined") {
         throw new Error("User ID is undefined");
     }
-    return Telegram.WebApp.initDataUnsafe.user.id;
+    return Telegram.WebApp.initDataUnsafe.user.id.toString();
 }
 
 export function tma_get_user_name() {
