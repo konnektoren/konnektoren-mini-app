@@ -2,12 +2,11 @@
 
 .challenge .multiple-choice-options {
     align-self: center;
-    border: 1px solid #ccc;
     border-radius: 10px;
     padding: 1em;
     text-align: left;
     border: 1px solid #007bff;
-    box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
     scale: 0.9;
 
     .multiple-choice-option {
@@ -19,6 +18,12 @@
         transition: background-color 0.3s ease;
         cursor: pointer;
         user-select: none;
+
+        label {
+            display: block;
+            width: 100%;
+            cursor: pointer;
+        }
     }
 
     .multiple-choice-option:hover {
