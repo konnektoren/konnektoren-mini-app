@@ -1,14 +1,11 @@
+use crate::prelude::ChallengeEffectComponent;
 use crate::{claim::ClaimComp, points::add_points};
-use gloo_timers::callback::Timeout;
 use konnektoren_core::{
     challenges::{ChallengeResult, Performance},
     game::Game,
 };
-use konnektoren_yew::components::challenge::{
-    ChallengeComponent, ChallengeEvent, ResultSummaryComponent,
-};
+use konnektoren_yew::components::challenge::ResultSummaryComponent;
 use std::ops::Div;
-use web_sys::HtmlAudioElement;
 use yew::prelude::*;
 
 #[derive(Properties, PartialEq)]
@@ -23,37 +20,15 @@ pub fn challenge_comp(props: &ChallengeCompProps) -> Html {
     let challenge_result = use_state(|| Option::<ChallengeResult>::None);
     let challenge = game.create_challenge(&props.id).unwrap_or_default();
     let feedback_class = use_state(|| "".to_string());
+    let challenge_config = game.game_path.get_challenge_config(&props.id).unwrap();
 
-    let handle_event = {
-        let challenge = challenge.clone();
+    let handle_finish = {
         let challenge_result = challenge_result.clone();
-        let feedback_class = feedback_class.clone();
-        Callback::from(move |event: ChallengeEvent| match event {
-            ChallengeEvent::Finish(result) => {
-                let points = challenge.performance(&result).div(10);
-                add_points(points);
-                challenge_result.set(Some(result.clone()));
-                let audio = HtmlAudioElement::new_with_src("assets/fanfare-3-rpg.ogg").unwrap();
-                let _ = audio.play().unwrap();
-            }
-            ChallengeEvent::NextTask(_index) => {}
-            ChallengeEvent::PreviousTask(_index) => {}
-            ChallengeEvent::SolvedCorrect(_index) => {
-                feedback_class.set("correct".to_string());
-                let feedback_class = feedback_class.clone();
-                Timeout::new(800, move || {
-                    feedback_class.set("".to_string());
-                })
-                .forget();
-            }
-            ChallengeEvent::SolvedIncorrect(_index) => {
-                feedback_class.set("incorrect".to_string());
-                let feedback_class = feedback_class.clone();
-                Timeout::new(800, move || {
-                    feedback_class.set("".to_string());
-                })
-                .forget();
-            }
+        let challenge = challenge.clone();
+        Callback::from(move |result: ChallengeResult| {
+            let points = challenge.performance(&result).div(10);
+            add_points(points);
+            challenge_result.set(Some(result.clone()));
         })
     };
 
@@ -78,7 +53,7 @@ pub fn challenge_comp(props: &ChallengeCompProps) -> Html {
         <div class={classes!("challenge-page", (*feedback_class).clone())}>
             {result_summary}
             {claim}
-            <ChallengeComponent challenge={challenge.clone()} on_event={handle_event} />
+            <ChallengeEffectComponent challenge={challenge.clone()} variant={challenge_config.variant.clone()} on_finish={handle_finish} />
         </div>
     }
 }
