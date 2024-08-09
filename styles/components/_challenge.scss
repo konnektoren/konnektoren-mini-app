@@ -18,6 +18,12 @@ h1 {
     h2 {
         display: none;
     }
+
+    .challenge-info-button {
+        position: absolute;
+        right: 0;
+        z-index: 1;
+    }
 }
 
 .challenge .tasks-info {

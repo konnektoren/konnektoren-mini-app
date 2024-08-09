@@ -5,6 +5,7 @@ use crate::points::PointsComp;
 use crate::telegram;
 use crate::version::VersionComp;
 use crate::wallet::WalletComp;
+use konnektoren_yew::i18n::{I18nConfig, I18nProvider};
 use yew::prelude::*;
 
 #[function_component(App)]
@@ -36,14 +37,18 @@ pub fn app() -> Html {
         })
     };
 
+    let i18n_config = I18nConfig::default();
+
     html! {
         <div>
-            <h1>{"Konnektoren"}</h1>
-            <VersionComp />
-            <WalletComp on_address={on_address} />
-            <PointsComp />
-            <ChallengeComp id={"konnektoren-1"} address={(*address).clone()} />
-            <FooterComp />
+            <I18nProvider config={i18n_config}>
+                <h1>{"Konnektoren"}</h1>
+                <VersionComp />
+                <WalletComp on_address={on_address} />
+                <PointsComp />
+                <ChallengeComp id={"konnektoren-1"} address={(*address).clone()} />
+                <FooterComp />
+            </I18nProvider>
         </div>
     }
 }
