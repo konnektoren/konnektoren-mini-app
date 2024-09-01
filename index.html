@@ -15,6 +15,25 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
             rel="stylesheet"
         />
+        <!-- Google tag (gtag.js) -->
+        <script
+                async
+                src="https://www.googletagmanager.com/gtag/js?id=G-N4PBT2YCM5"
+        ></script>
+        <script
+                async
+                src="https://www.googletagmanager.com/gtag/js?id=G-RZE4XV6ER8"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-N4PBT2YCM5", { groups: "default" });
+            gtag("config", "G-RZE4XV6ER8", { groups: "default" });
+        </script>
         <link data-trunk rel="scss" href="styles/index.scss" />
     </head>
     <body>
