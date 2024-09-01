@@ -1,5 +1,5 @@
 use crate::api::profile::fetch_profile;
-use crate::challenge::ChallengeComp;
+use crate::components::Roulette;
 use crate::footer::FooterComp;
 use crate::points::PointsComp;
 use crate::prelude::{VersionComp, WalletComp};
@@ -41,7 +41,7 @@ pub fn home_page() -> Html {
             <VersionComp />
             <WalletComp on_address={on_address} />
             <PointsComp />
-            <ChallengeComp id={"konnektoren-1"} address={(*address).clone()} />
+            <Roulette address={(*address).clone()} />
             <FooterComp />
         </div>
     }

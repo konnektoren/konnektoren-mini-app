@@ -1,4 +1,6 @@
+use crate::model::{GameLoader, WebSession};
 use crate::prelude::ChallengeEffectComponent;
+use crate::route::{AddressParam, Route};
 use crate::{claim::ClaimComp, points::add_points};
 use konnektoren_core::{
     challenges::{ChallengeResult, Performance},
@@ -7,20 +9,29 @@ use konnektoren_core::{
 use konnektoren_yew::components::challenge::ResultSummaryComponent;
 use std::ops::Div;
 use yew::prelude::*;
+use yew_router::components::Link;
+use yew_router::hooks::use_location;
 
 #[derive(Properties, PartialEq)]
-pub struct ChallengeCompProps {
+pub struct ChallengePageProps {
     pub id: String,
-    pub address: String,
 }
 
-#[function_component(ChallengeComp)]
-pub fn challenge_comp(props: &ChallengeCompProps) -> Html {
-    let game = Game::default();
+#[function_component(ChallengePage)]
+pub fn challenge_comp(props: &ChallengePageProps) -> Html {
+    let location = use_location().unwrap();
+    let address = location.query::<AddressParam>().unwrap().address;
+
+    let game = Game::load_game();
     let challenge_result = use_state(|| Option::<ChallengeResult>::None);
     let challenge = game.create_challenge(&props.id).unwrap_or_default();
     let feedback_class = use_state(|| "".to_string());
-    let challenge_config = game.game_paths[0].get_challenge_config(&props.id).unwrap();
+    let web_session = WebSession::default();
+    let current_level = web_session.session.game_state.current_game_path;
+
+    let challenge_config = game.game_paths[current_level]
+        .get_challenge_config(&props.id)
+        .unwrap();
 
     let handle_finish = {
         let challenge_result = challenge_result.clone();
@@ -35,7 +46,12 @@ pub fn challenge_comp(props: &ChallengeCompProps) -> Html {
     let result_summary = match &*challenge_result {
         Some(result) => {
             html! {
+                <>
                 <ResultSummaryComponent challenge={challenge.clone()} challenge_result={result.clone()} />
+                <Link<Route> to={Route::Home}>
+                    <span class="link-text">{ "Back to Home" }</span>
+                </Link<Route>>
+                </>
             }
         }
         None => html! {},
@@ -44,7 +60,7 @@ pub fn challenge_comp(props: &ChallengeCompProps) -> Html {
         Some(result) if challenge.performance(&result) >= 50 => {
             let amount: u32 = challenge.performance(&result).checked_div(10).unwrap_or(0) as u32;
             html! {
-                <ClaimComp address={props.address.clone()} {amount} />
+                <ClaimComp address={address.clone()} {amount} />
             }
         }
         _ => html! {},

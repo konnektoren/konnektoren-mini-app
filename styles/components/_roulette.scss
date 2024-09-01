@@ -1,0 +1,138 @@
+@use "sass:map";
+@use "../abstracts/type" as *;
+@use "../abstracts/colors" as *;
+@use "../abstracts/variables" as *;
+
+.roulette {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .slice a {
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    .link-text {
+      font-size: map.get($font-sizes, '500');
+      font-family: map.get($font-families, 'button');
+      color: $tertiary-color;
+    }
+
+    .link-text:hover {
+      transform: scale(1.1);
+      box-shadow: 0 $small-border-radius $large-border-radius rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .slice {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    background-color: $background-primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+  }
+
+  .slice-0 {
+    transform: rotate(0deg) translateX(-100%);
+    background-color: #fb5607;
+
+    a {
+      transform: rotate(0deg);
+    }
+  }
+
+  .slice-1 {
+    transform: rotate(90deg) translateX(-100%);
+    background-color: #ff006e;
+
+    a {
+      transform: rotate(-90deg);
+    }
+  }
+
+  .slice-2 {
+    transform: rotate(180deg) translateX(-100%);
+    background-color: #8338ec;
+
+    a {
+      transform: rotate(-180deg);
+    }
+  }
+
+  .slice-3 {
+    transform: rotate(270deg) translateX(-100%);
+    background-color: #3a86ff;
+
+    a {
+      transform: rotate(-270deg);
+    }
+  }
+
+  .center-circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $background-primary;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    a {
+      text-decoration: none;
+    }
+
+    .link-text {
+      font-size: map.get($font-sizes, '600');
+      font-weight: map.get($font-weights, 'regular');
+      font-family: map.get($font-families, 'button');
+      color: $primary-color;
+    }
+  }
+
+}
+
+@media (min-width: 768px) {
+  .roulette {
+    width: 400px;
+    height: 400px;
+  }
+
+  .slice {
+    font-size: 1rem;
+  }
+
+  .center-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .link-text {
+    font-size: map.get($font-sizes, '600');
+  }
+}

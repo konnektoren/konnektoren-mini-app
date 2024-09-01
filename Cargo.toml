@@ -13,7 +13,7 @@ name = "konnektoren_mini_app_bin"
 path = "src/main.rs"
 
 [dependencies]
-
+gloo = { version = "0.11.0", features = ["storage", "timers"] }
 konnektoren-core = { git = "https://github.com/konnektoren/konnektoren-rs.git", default-features = false }
 konnektoren-yew = { git = "https://github.com/konnektoren/konnektoren-rs.git", default-features = false, features = [
     "storage", "effects", "music"
@@ -29,5 +29,6 @@ gloo-utils = "0.2.0"
 web-sys = { version = "0.3.69", features = ["HtmlAudioElement"] }
 serde = { version = "1.0.203", features = ["derive"] }
 serde_json = "1.0.117"
+serde_yaml = "0.9.33"
 reqwest = { version = "0.12.5", features = ["json"] }
 anyhow = "1.0.86"

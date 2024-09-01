@@ -1,4 +1,4 @@
-use crate::pages::{AboutPage, HomePage};
+use crate::pages::{AboutPage, ChallengePage, HomePage};
 use crate::route::Route;
 use konnektoren_yew::i18n::{I18nConfig, I18nProvider};
 use yew::prelude::*;
@@ -8,6 +8,9 @@ fn switch_main(route: Route) -> Html {
     match route {
         Route::About => html! {<AboutPage /> },
         Route::Home => html! {<HomePage />},
+        Route::Challenge { id } => html! {
+            <ChallengePage id={id}/>
+        },
     }
 }
 
