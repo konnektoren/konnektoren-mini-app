@@ -13,12 +13,14 @@ name = "konnektoren_mini_app_bin"
 path = "src/main.rs"
 
 [dependencies]
-yew = { version = "0.21", features = ["csr"] }
+
 konnektoren-core = { git = "https://github.com/konnektoren/konnektoren-rs.git", default-features = false }
 konnektoren-yew = { git = "https://github.com/konnektoren/konnektoren-rs.git", default-features = false, features = [
     "storage", "effects", "music"
 ] }
 log = "0.4.21"
+yew = { version = "0.21", features = ["csr"] }
+yew-router = { version = "0.18.0" }
 wasm-bindgen = "0.2.92"
 wasm-bindgen-futures = "0.4.42"
 console_log = "1.0.0"
