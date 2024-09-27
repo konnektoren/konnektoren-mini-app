@@ -17,7 +17,7 @@ impl IsCorrect for Challenge {
             ChallengeResult::MultipleChoice(ref mc) => mc.get(index),
             ChallengeResult::Informative => unreachable!("Informative is not implemented"),
             ChallengeResult::SortTable(_) => unreachable!("SortTable is not implemented"),
-            ChallengeResult::Custom => unreachable!("Custom is not implemented"),
+            ChallengeResult::Custom(_) => unreachable!("Custom is not implemented"),
         };
         log::info!("Option: {:?}, Result: {:?}", option, result);
         match (option, result) {

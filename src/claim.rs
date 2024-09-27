@@ -1,4 +1,3 @@
-use gloo_utils::format::JsValueSerdeExt;
 use serde::Deserialize;
 use wasm_bindgen::prelude::*;
 use wasm_bindgen_futures::{js_sys::Promise, JsFuture};
