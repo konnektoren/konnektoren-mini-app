@@ -1,0 +1,132 @@
+.roulette {
+    @apply relative w-[300px] h-[300px];
+    @apply rounded-full overflow-hidden;
+    @apply shadow-[0_0_20px_rgba(0,0,0,0.2)];
+    @apply mx-auto;
+}
+
+/* Reset list styles */
+.roulette ul {
+    @apply list-none p-0 m-0;
+}
+
+/* Base slice styles */
+.roulette .slice {
+    @apply absolute w-1/2 h-1/2;
+    @apply top-1/2 left-1/2;
+    @apply origin-top-left;
+    @apply flex justify-center items-center;
+    @apply transition-transform duration-300;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Slice link styles */
+.roulette .slice a {
+    @apply absolute w-[70%] h-full;
+    @apply flex justify-center items-center;
+    @apply no-underline;
+}
+
+/* Slice link text */
+.roulette .slice a .link-text {
+    @apply text-base text-base-100;
+    @apply transition-all duration-300;
+}
+
+.roulette .slice a .link-text:hover {
+    @apply scale-110;
+    @apply drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)];
+}
+
+/* Individual slice styles */
+.roulette .slice-0 {
+    @apply bg-error;
+    transform: rotate(0deg) translateX(-100%);
+}
+.roulette .slice-0 a {
+    transform: rotate(0deg);
+}
+
+.roulette .slice-1 {
+    @apply bg-warning;
+    transform: rotate(90deg) translateX(-100%);
+}
+.roulette .slice-1 a {
+    transform: rotate(-90deg);
+}
+
+.roulette .slice-2 {
+    @apply bg-info;
+    transform: rotate(180deg) translateX(-100%);
+}
+.roulette .slice-2 a {
+    transform: rotate(-180deg);
+}
+
+.roulette .slice-3 {
+    @apply bg-success;
+    transform: rotate(270deg) translateX(-100%);
+}
+.roulette .slice-3 a {
+    transform: rotate(-270deg);
+}
+
+/* Center circle styles */
+.roulette .center-circle {
+    @apply absolute w-[100px] h-[100px];
+    @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    @apply bg-base-100 rounded-full;
+    @apply flex justify-center items-center;
+    @apply shadow-[0_0_10px_rgba(0,0,0,0.1)];
+}
+
+.roulette .center-circle a {
+    @apply no-underline;
+}
+
+.roulette .center-circle .link-text {
+    @apply text-lg font-normal text-primary;
+    @apply transition-transform duration-300;
+}
+
+.roulette .center-circle .link-text:hover {
+    @apply scale-110;
+}
+
+/* Medium screen styles */
+@screen md {
+    .roulette {
+        @apply w-[400px] h-[400px];
+    }
+
+    .roulette .slice a .link-text {
+        @apply text-lg;
+    }
+
+    .roulette .center-circle {
+        @apply w-[150px] h-[150px];
+    }
+
+    .roulette .center-circle .link-text {
+        @apply text-xl;
+    }
+}
+
+/* Small screen styles */
+@screen sm {
+    .roulette {
+        @apply w-[250px] h-[250px];
+    }
+
+    .roulette .slice a .link-text {
+        @apply text-sm;
+    }
+
+    .roulette .center-circle {
+        @apply w-[80px] h-[80px];
+    }
+
+    .roulette .center-circle .link-text {
+        @apply text-base;
+    }
+}

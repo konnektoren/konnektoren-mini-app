@@ -1,0 +1,6 @@
+.challenge {
+    @apply relative my-8 mx-auto;
+    @apply bg-base-100 rounded-xl;
+    @apply shadow-md;
+    @apply sm:m-0;
+}

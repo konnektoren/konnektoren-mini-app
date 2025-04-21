@@ -1,0 +1,26 @@
+.version {
+    @apply fixed bottom-2.5 left-2.5;
+    @apply bg-base-200/80 backdrop-blur-sm;
+    @apply p-2.5 rounded-lg;
+    @apply shadow-md;
+    @apply transition-all duration-300;
+    @apply hover:bg-base-300/90;
+    @apply z-10;
+}
+
+.version .value {
+    @apply text-base font-semibold text-base-content;
+    @apply flex items-center;
+}
+
+/* Add a subtle animation for the version display on hover */
+.version:hover {
+    @apply scale-105;
+}
+
+/* Dark mode adaptation built-in through DaisyUI theming */
+@media (prefers-color-scheme: dark) {
+    .version {
+        @apply shadow-lg shadow-base-content/5;
+    }
+}

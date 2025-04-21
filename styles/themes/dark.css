@@ -1,0 +1,54 @@
+@plugin "daisyui/theme" {
+    name: "dark";
+    default: false;
+    prefersdark: true;
+    color-scheme: "dark";
+
+    /* Base colors - inverted from light */
+    --color-base-100: oklch(16% 0.02 300); /* dark background */
+    --color-base-200: oklch(19% 0.02 300); /* slightly lighter */
+    --color-base-300: oklch(22% 0.03 300); /* for borders and dividers */
+    --color-base-content: oklch(90% 0.02 300); /* light text */
+
+    /* Primary color - #6200ea, slightly adjusted for dark mode */
+    --color-primary: oklch(55% 0.3 295); /* Brighter #6200ea */
+    --color-primary-content: oklch(100% 0 0);
+
+    /* Secondary color - #7b61ff (hover-color), adjusted */
+    --color-secondary: oklch(65% 0.26 290); /* Brighter #7b61ff */
+    --color-secondary-content: oklch(100% 0 0);
+
+    /* Accent color - #5642a6 (active-color), adjusted */
+    --color-accent: oklch(50% 0.24 295); /* Brighter #5642a6 */
+    --color-accent-content: oklch(100% 0 0);
+
+    /* Info - #17a2b8, slightly brighter */
+    --color-info: oklch(70% 0.19 210);
+    --color-info-content: oklch(100% 0 0);
+
+    /* Success - #4caf50, slightly brighter */
+    --color-success: oklch(70% 0.22 145);
+    --color-success-content: oklch(100% 0 0);
+
+    /* Warning - #ffc107, adjusted for dark mode */
+    --color-warning: oklch(80% 0.18 85);
+    --color-warning-content: oklch(16% 0.01 0);
+
+    /* Error - #dc3545, slightly adjusted */
+    --color-error: oklch(65% 0.3 25);
+    --color-error-content: oklch(100% 0 0);
+
+    /* Custom colors for specific elements - adjusted for dark mode */
+    --color-error-bg: oklch(30% 0.08 10); /* Darker version of #f8d7da */
+    --color-success-bg: oklch(30% 0.08 145); /* Darker version of #d4edda */
+
+    /* Styling options */
+    --radius-selector: 0.5rem;
+    --radius-field: 0.25rem;
+    --radius-box: 0.5rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 2; /* Slightly increased depth for dark mode */
+    --noise: 0.05; /* Slight noise for texture in dark mode */
+}

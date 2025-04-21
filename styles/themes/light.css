@@ -1,0 +1,54 @@
+@plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+    prefersdark: false;
+    color-scheme: "light";
+
+    /* Base colors */
+    --color-base-100: oklch(98% 0.01 0); /* #f8f9fa background-primary */
+    --color-base-200: oklch(94% 0.01 0); /* Slightly darker */
+    --color-base-300: oklch(91% 0.02 0); /* #e7e7e7 footer-border-color */
+    --color-base-content: oklch(24% 0.01 0); /* #343a40 dark-color */
+
+    /* Primary color - #6200ea */
+    --color-primary: oklch(50% 0.28 295); /* #6200ea */
+    --color-primary-content: oklch(100% 0 0); /* white */
+
+    /* Secondary color - #7b61ff (hover-color) */
+    --color-secondary: oklch(60% 0.24 290); /* #7b61ff */
+    --color-secondary-content: oklch(100% 0 0); /* white */
+
+    /* Accent color - #5642a6 (active-color) */
+    --color-accent: oklch(45% 0.22 295); /* #5642a6 */
+    --color-accent-content: oklch(100% 0 0); /* white */
+
+    /* Info - #17a2b8 */
+    --color-info: oklch(65% 0.18 210); /* #17a2b8 */
+    --color-info-content: oklch(100% 0 0); /* white */
+
+    /* Success - #4caf50 */
+    --color-success: oklch(65% 0.2 145); /* #4caf50 */
+    --color-success-content: oklch(100% 0 0); /* white */
+
+    /* Warning - #ffc107 */
+    --color-warning: oklch(85% 0.2 85); /* #ffc107 */
+    --color-warning-content: oklch(24% 0.01 0); /* dark text */
+
+    /* Error - #dc3545 */
+    --color-error: oklch(60% 0.28 25); /* #dc3545 */
+    --color-error-content: oklch(100% 0 0); /* white */
+
+    /* Custom colors for specific elements */
+    --color-error-bg: oklch(95% 0.05 10); /* #f8d7da */
+    --color-success-bg: oklch(95% 0.05 145); /* #d4edda */
+
+    /* Styling options */
+    --radius-selector: 0.5rem;
+    --radius-field: 0.25rem;
+    --radius-box: 0.5rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 0;
+}

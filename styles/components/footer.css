@@ -1,0 +1,20 @@
+.footer {
+    @apply mt-8 py-4 px-6;
+    @apply border-t-2 border-base-200;
+    @apply text-center text-base-content/80;
+    @apply bg-base-100;
+    @apply w-full;
+}
+
+.footer a {
+    @apply text-primary hover:underline;
+    @apply transition-colors duration-200;
+}
+
+/* Responsive adjustments */
+@screen sm {
+    .footer {
+        @apply mt-6 py-3 px-4;
+        @apply text-sm;
+    }
+}

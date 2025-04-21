@@ -1,0 +1,55 @@
+.wallet {
+    @apply fixed top-2 right-4;
+    @apply bg-base-200/80 backdrop-blur-sm;
+    @apply rounded-2xl;
+    @apply shadow-md;
+    @apply transition-all duration-300;
+    @apply z-20;
+    @apply flex items-center gap-2;
+    @apply p-2;
+}
+
+.wallet:hover {
+    @apply bg-base-300/90 shadow-lg;
+}
+
+#wallet-button {
+    @apply flex items-center justify-center;
+    @apply min-h-0 h-auto;
+}
+
+.balance {
+    @apply text-lg font-bold text-base-content;
+    @apply flex items-center;
+    @apply py-1 px-3;
+    @apply rounded-xl;
+    @apply transition-all duration-200;
+}
+
+.balance:hover {
+    @apply bg-base-300;
+}
+
+.symbol {
+    @apply mr-3 text-warning text-base;
+    @apply transition-transform duration-300;
+}
+
+.wallet:hover .symbol {
+    @apply scale-110 rotate-12;
+}
+
+@screen sm {
+    .wallet {
+        @apply top-1 right-2;
+        @apply p-1.5;
+    }
+
+    .balance {
+        @apply text-base py-0.5 px-2;
+    }
+
+    .symbol {
+        @apply mr-2 text-sm;
+    }
+}

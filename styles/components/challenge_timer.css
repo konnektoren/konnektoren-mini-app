@@ -1,0 +1,7 @@
+.challenge-timer {
+    @apply flex items-center;
+}
+
+.challenge-timer .timer {
+    @apply w-full;
+}

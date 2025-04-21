@@ -1,0 +1,41 @@
+.result-summary {
+    @apply card bg-base-100 shadow-md;
+    @apply mt-8;
+}
+
+.result-summary .result-content {
+    @apply mt-4;
+}
+
+.result-summary .result-content .challenge-timer__title {
+    @apply hidden;
+}
+
+.result-summary .congratulation {
+    @apply text-success mb-2;
+}
+
+.result-summary .performance {
+    @apply flex items-center justify-center;
+    @apply my-4 p-2 rounded-lg;
+}
+
+.result-summary .performance-score {
+    @apply text-4xl font-bold mr-2;
+}
+
+.result-summary .performance-excellent {
+    @apply bg-success/10 text-success;
+}
+
+.result-summary .performance-good {
+    @apply bg-info/10 text-info;
+}
+
+.result-summary .performance-fair {
+    @apply bg-warning/10 text-warning;
+}
+
+.result-summary .performance-needs-improvement {
+    @apply bg-error/10 text-error;
+}

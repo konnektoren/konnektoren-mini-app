@@ -1,0 +1,96 @@
+.challenge-result {
+    @apply text-center p-8 bg-base-100 rounded-xl;
+    @apply shadow-[0_10px_20px_rgba(0,0,0,0.1)];
+    @apply transition-all duration-300;
+}
+
+.challenge-result:hover {
+    @apply -translate-y-[5px] bg-success/10;
+    @apply brightness-95;
+}
+
+/* Heading styles */
+.challenge-result h2 {
+    @apply text-3xl font-bold relative;
+}
+
+.challenge-result h2::after {
+    content: "";
+    @apply absolute -bottom-[10px] left-1/2 -translate-x-1/2;
+    @apply w-[50px] h-[3px] bg-primary;
+    @apply transition-[width] duration-300;
+}
+
+.challenge-result h2:hover::after {
+    @apply w-[100px];
+}
+
+/* List styles */
+.challenge-result ul {
+    @apply list-none p-0 m-0;
+}
+
+.challenge-result ul li {
+    @apply p-6 mb-6 rounded-lg;
+    @apply font-sans text-lg;
+    @apply transition-transform duration-300;
+}
+
+.challenge-result ul li:hover {
+    @apply scale-105;
+}
+
+/* Result items */
+.challenge-result .result-correct,
+.challenge-result .result-incorrect {
+    @apply flex items-center p-6 rounded-lg;
+    @apply transition-colors duration-300;
+}
+
+.challenge-result .result-correct::before,
+.challenge-result .result-incorrect::before {
+    @apply font-['Font_Awesome_5_Free'] font-black mr-6 text-xl;
+}
+
+/* Correct result */
+.challenge-result .result-correct {
+    @apply bg-success/10 text-success;
+}
+
+.challenge-result .result-correct::before {
+    content: "\f00c";
+    @apply text-success;
+}
+
+.challenge-result .result-correct:hover {
+    @apply brightness-95;
+}
+
+/* Incorrect result */
+.challenge-result .result-incorrect {
+    @apply bg-error/10 text-error;
+}
+
+.challenge-result .result-incorrect::before {
+    content: "\f00d";
+    @apply text-error;
+}
+
+.challenge-result .result-incorrect:hover {
+    @apply brightness-95;
+}
+
+/* Responsive styles */
+@screen sm {
+    .challenge-result {
+        @apply p-6;
+    }
+
+    .challenge-result h2 {
+        @apply text-2xl;
+    }
+
+    .challenge-result ul li {
+        @apply text-base p-2;
+    }
+}

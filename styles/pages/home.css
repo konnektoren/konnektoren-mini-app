@@ -1,0 +1,7 @@
+.home-page {
+    @apply min-h-screen flex flex-col items-center justify-center;
+    @apply bg-base-100 text-base-content;
+    @apply p-8 pt-[calc(2rem+80px)] pb-24;
+    @apply font-serif;
+    @apply transition-all duration-300;
+}

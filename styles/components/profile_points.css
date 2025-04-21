@@ -1,0 +1,92 @@
+.points {
+    @apply fixed top-2 left-4;
+    @apply bg-base-200/80 backdrop-blur-sm;
+    @apply rounded-2xl shadow-md;
+    @apply transition-all duration-300;
+    @apply z-20;
+    @apply p-2;
+}
+
+.points:hover {
+    @apply bg-base-300/90 shadow-lg;
+    @apply -translate-y-0.5;
+}
+
+.points .value {
+    @apply text-base font-bold text-base-content;
+    @apply flex items-center;
+    @apply py-1 px-3;
+}
+
+.points .symbol {
+    @apply mr-3 text-warning;
+    @apply transition-transform duration-300;
+}
+
+.points:hover .symbol {
+    @apply scale-110 rotate-6;
+}
+
+/* Special case for when points is inside a link */
+a .points,
+a .profile-points {
+    @apply fixed top-2 left-2 z-10;
+    position: fixed !important;
+}
+
+/* Badge-style points for compact display */
+.points-badge {
+    @apply badge badge-lg;
+    @apply bg-base-200 text-base-content;
+    @apply flex items-center gap-1;
+}
+
+.points-badge .symbol {
+    @apply text-warning;
+}
+
+/* Increase visual prominence when points change */
+.points-changing {
+    animation: pulse-points 1s ease-in-out;
+}
+
+/* Pulse animation for points changes - no @apply used */
+@keyframes pulse-points {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+        background-color: rgba(
+            250,
+            204,
+            21,
+            0.2
+        ); /* warning color with 20% opacity */
+    }
+}
+
+/* Responsive styles */
+@screen sm {
+    .points {
+        @apply top-1 left-2 p-1.5;
+    }
+
+    .points .value {
+        @apply text-sm py-0.5 px-2;
+    }
+
+    .points .symbol {
+        @apply mr-2 text-xs;
+    }
+
+    a .points,
+    a .profile-points {
+        @apply top-1 left-1;
+    }
+
+    .points-badge {
+        @apply badge-md;
+    }
+}

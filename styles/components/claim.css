@@ -1,0 +1,77 @@
+.claim {
+    @apply card bg-base-100 shadow-md;
+    @apply p-5 text-center;
+    @apply max-w-sm mx-auto my-5;
+}
+
+.claim h2 {
+    @apply text-2xl font-bold text-base-content;
+    @apply mb-3;
+}
+
+.claim p {
+    @apply mb-5 text-lg;
+    @apply text-base-content/70;
+}
+
+.claim .address {
+    @apply text-sm text-base-content/70;
+    @apply flex items-center justify-center;
+    @apply py-2 px-4 bg-base-200 rounded-full;
+    @apply inline-block;
+}
+
+.claim .address .symbol {
+    @apply mr-2 text-primary;
+}
+
+.claim .claim-container {
+    @apply flex items-center justify-center;
+}
+
+.claim .claim-button {
+    @apply btn btn-primary;
+    @apply normal-case flex items-center justify-center;
+    @apply relative;
+    @apply transition-all duration-300;
+}
+
+.claim .claim-button i {
+    @apply mr-2;
+}
+
+.claim .claim-button .loader {
+    @apply w-5 h-5 border-2 border-base-100 rounded-full;
+    @apply border-t-2 border-t-transparent;
+    @apply animate-spin;
+    @apply hidden;
+}
+
+.claim .claim-button:disabled .loader {
+    @apply inline-block;
+}
+
+.claim .claim-button:hover {
+    @apply bg-primary/90;
+    @apply -translate-y-0.5 shadow-lg;
+}
+
+.claim .claim-button:active {
+    @apply bg-primary/80;
+    @apply translate-y-0 shadow-md;
+}
+
+.claim .claim-error {
+    @apply text-error text-sm ml-3;
+    @apply animate-pulse;
+}
+
+.claim .claim-error p {
+    @apply text-error m-0;
+}
+
+.claim a {
+    @apply block mt-5 text-primary;
+    @apply no-underline hover:underline;
+    @apply transition-colors duration-300;
+}
