@@ -141,6 +141,7 @@ impl LevelLoader<Game> for Game {
             game_paths,
             challenge_factory,
             challenge_history: Default::default(),
+            xp: Default::default(),
         }
     }
 
@@ -151,6 +152,7 @@ impl LevelLoader<Game> for Game {
             game_paths,
             challenge_factory,
             challenge_history: Default::default(),
+            xp: Default::default(),
         }
     }
 
@@ -161,6 +163,7 @@ impl LevelLoader<Game> for Game {
             game_paths,
             challenge_factory,
             challenge_history: Default::default(),
+            xp: Default::default(),
         }
     }
 }

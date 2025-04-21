@@ -1,6 +1,7 @@
 !informative
 id: "personalpronouns-info"
 name: "Personalpronouns Info"
+lang: "de"
 description: "Information about personal pronouns"
 text:
   - language: "de"
