@@ -1,6 +1,7 @@
 !informative
 id: "reflexivpronouns-info"
 name: "Reflexivpronomen Info"
+lang: "de"
 description: "Information about reflexive pronouns"
 text:
   - language: "de"

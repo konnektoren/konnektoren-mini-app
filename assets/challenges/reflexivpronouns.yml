@@ -1,6 +1,7 @@
 !multiple-choice
 id: "reflexivpronouns"
 name: "Reflexivpronomen"
+lang: "de"
 options:
   - id: 0
     name: "mich"
